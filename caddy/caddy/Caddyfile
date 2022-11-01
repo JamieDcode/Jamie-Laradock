@@ -1,9 +1,678 @@
-# Docs: https://caddyserver.com/docs/caddyfile
-laradock.test {
-    root * /var/www/public
+{
+    debug
+    local_certs
+    # auto_https disable_redirects
+}
+
+adminer.test {
+   reverse_proxy adminer:8080
+}
+
+mailhog.test {
+   reverse_proxy mailhog:8025
+}
+
+minio.test {
+   reverse_proxy minio:9000
+}
+
+meilisearch.test {
+   reverse_proxy meilisearch:7700
+}
+
+# Cine Q
+q.test {
+
+    @ws {
+        header Connection *Upgrade*
+        header Upgrade    websocket
+    }
+    reverse_proxy @ws php-worker:6001
+
+    root * /var/www/q/public/
     php_fastcgi php-fpm:9000
     file_server
 
     encode gzip
+}
+
+mailgun.test {
+    root * /var/www/webhook-mailgun/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
     tls internal
+    encode gzip
+}
+
+theloom.test {
+    root * /var/www/theloom/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+cambium.test {
+    root * /var/www/thecambium/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+strata.test {
+    root * /var/www/strata/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+loveusoap.test {
+    root * /var/www/loveusoap/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+koala.test {
+    root * /var/www/koala-cherries/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+video-inspection.test {
+    root * /var/www/video-inspection/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+stripe-payment.test {
+    root * /var/www/accept-a-payment/custom-payment-flow/server/php/public
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+http://stripe-payment.test {
+    root * /var/www/accept-a-payment/custom-payment-flow/server/php/public
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+kinesis.test {
+    root * /var/www/amazon-kinesis-video-streams-webrtc-sdk-js/examples
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+http://cabmaster.test {
+    root * /var/www/cabmaster/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+agushi.test {
+    root * /var/www/agushi/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+staircaseconstructions.test {
+    root * /var/www/staircaseconstructions/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+mountaindistilling.test {
+    root * /var/www/mountaindistilling/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+cabmaster.test {
+    root * /var/www/cabmaster/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+bestratedtransport.test {
+    root * /var/www/bestratedtransport/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+http://bestratedtransport.test {
+    root * /var/www/bestratedtransport/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+asiamarketentry-au.test {
+    root * /var/www/asiamarketentry/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+asiamarketentry-sg.test {
+    root * /var/www/asiamarketentry/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+defex.test {
+    root * /var/www/defex/public/
+    php_fastcgi php-fpm-7.4:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+honestysnacks.test {
+    root * /var/www/honestysnacks/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+mandoleorchard.test {
+    root * /var/www/mandoleorchard/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+enqip.test {
+    root * /var/www/enqip/public/
+    php_fastcgi php-fpm-7.4:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+edge-website.test {
+    root * /var/www/edgegroup.website/public/
+    php_fastcgi php-fpm-7.4:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+dev.acn.com {
+    root * /var/www/acn/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+dev.thatcatholicshop.com {
+    root * /var/www/acn/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+dev.app.dynamicts.com.au {
+    root * /var/www/dynamictradesolutions/public/
+    php_fastcgi php-fpm:9000
+    file_server
+    encode gzip
+}
+
+dev.dynamicts.com.au {
+    root * /var/www/dynamictradesolutions/public/
+    php_fastcgi php-fpm:9000
+    file_server
+    encode gzip
+}
+
+myoffer.test {
+    @ws {
+        header Connection *Upgrade*
+        header Upgrade    websocket
+    }
+    reverse_proxy @ws php-worker:6001
+
+    root * /var/www/myoffer/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    encode gzip
+}
+
+phs.test {
+    root * /var/www/phs-webapp/app/webroot/
+    php_fastcgi php-fpm-7.4:9000
+    file_server
+
+    encode gzip
+}
+
+connectedcommercial.test {
+    root * /var/www/connected-commercial/public
+    php_fastcgi php-fpm:9000
+    file_server
+
+    encode gzip
+}
+
+flooringlab-splash.test {
+    root * /var/www/flooringlab-splash/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+flooringlab.test {
+    root * /var/www/flooringlab/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+*.flooringlab.test {
+    root * /var/www/flooringlab/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+flooringlabtenant.test {
+    root * /var/www/flooringlab/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+macuport.test {
+    root * /var/www/macutex/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+premax.test {
+    root * /var/www/premax.web/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+asbestosedge.test {
+    root * /var/www/edgegroup.stealth/public/
+    php_fastcgi php-fpm-7.4:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+*.dev.app.misura.com.au {
+    root * /var/www/misura/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    encode gzip
+}
+
+evolutionelectrical.test {
+    root * /var/www/evolutionelectrical/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+washed.test {
+    root * /var/www/washed/public/
+    php_fastcgi php-fpm-7.4:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+wrapstudio.test {
+    root * /var/www/wrapstudio/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    encode gzip
+}
+
+kanopi.test {
+    root * /var/www/kanopi/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+industrypropertygroup.test {
+    root * /var/www/industrypropertygroup/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+project-starter.test {
+    root * /var/www/project-starter/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+jetstream.test {
+    root * /var/www/jetstream-test/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+ipg.test {
+    root * /var/www/industrypropertygroup/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+melbourneacl.test {
+    root * /var/www/melbourneacl/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+laundrylineup.test {
+    root * /var/www/laundrylineup/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+gradcon.test {
+    root * /var/www/gradcon/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+latrobegarmin.test {
+    root * /var/www/latrobegarmin/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    encode gzip
+}
+
+http://latrobegarmin.test {
+    root * /var/www/latrobegarmin/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+wpe.test {
+    root * /var/www/wpe/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+kontrastinteriors.test {
+    root * /var/www/kontrastinteriors/public/
+    php_fastcgi php-fpm-7.4:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+dev.esgportal.com {
+    root * /var/www/esg/public/
+    php_fastcgi php-fpm-7.4:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+dev.soildeclaration.com {
+    root * /var/www/esg/public/
+    php_fastcgi php-fpm-7.4:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+dev.earthsolutionsgroup.com.au {
+    root * /var/www/esg/public/
+    php_fastcgi php-fpm-7.4:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+customerplus.test {
+    root * /var/www/customerplus/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+rpgroup.test {
+    root * /var/www/rpgroup/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+dcodegroup.test {
+    root * /var/www/dcode/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+ombord.test {
+    root * /var/www/ombord/public/
+    php_fastcgi php-fpm-7.4:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+mlilyportal.test {
+    root * /var/www/mlilyportal/public/
+    php_fastcgi php-fpm-7.4:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+leeelectrix.test {
+    root * /var/www/leeelectrix/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+m2electrical.test {
+    root * /var/www/m2electrical/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+# Greeta
+#greeta.test {
+#    root * /var/www/greeta-laravel/public/
+#    php_fastcgi php-fpm:9000
+#    file_server
+#
+#    encode gzip
+#}
+
+#screensavers.test {
+#    root * /var/www/screensavers/public
+#    php_fastcgi php-fpm:9000
+#    file_server
+#
+#    encode gzip
+#}
+
+#surprise.test {
+#    root * /var/www/surprise-and-delight/public
+#    php_fastcgi php-fpm:9000
+#    file_server
+#
+#    encode gzip
+#}
+
+# babyrzepecki
+babyrzepecki.test {
+    root * /var/www/babyrzepecki/public
+    php_fastcgi php-fpm:9000
+    file_server
+
+    encode gzip
+}
+
+#taskey.test {
+#    root * /var/www/taskey-laravel/public
+#    php_fastcgi php-fpm:9000
+#    file_server
+#
+#    encode gzip
+#}
+
+hctech-cars.test {
+    root * /var/www/hctech_cars
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+cartrack.test {
+    root * /var/www/cartrack/public
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+wedding.test {
+    root * /var/www/wedding-laravel/public
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
 }
