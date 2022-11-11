@@ -101,7 +101,7 @@ Almost no project uses the same setups so for sure there will be some that I hav
 ## Changing php versions and node versions
 To switch between node versions laradock provides nvm out of the box.
 
-To switch between php versions, go to laradock .env file and you will see php version. Just change this to whichever you need. Generally I go into the php-fpm and workspace container's Dockerfile and ensure the php version is set to what you need as well.
+To switch between php versions, go to laradock .env file and you will see php version. Just change this to whichever you need. 
 Make sure docker isn't running while you do this otherwise it won't change until you stop it and rebuild.
 - run `docker-compose down` if the container is running
 - run `docker-compose build workspace php-fpm`
