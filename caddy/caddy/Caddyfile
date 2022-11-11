@@ -81,6 +81,15 @@ loveusoap.test {
     encode gzip
 }
 
+strapi.test {
+    root * /var/www/loveusoap/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
 koala.test {
     root * /var/www/koala-cherries/public/
     php_fastcgi php-fpm:9000
@@ -601,6 +610,15 @@ leeelectrix.test {
 
 m2electrical.test {
     root * /var/www/m2electrical/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
+aluline.test {
+    root * /var/www/aluline/public/
     php_fastcgi php-fpm:9000
     file_server
 
