@@ -761,6 +761,7 @@ RUN if [ ${INSTALL_NODE} = true ]; then \
         ;fi \
         && if [ ${INSTALL_NPM_FRACTAL_CLI} = true ]; then \
         npm install -g @frctl/fractal \
+        ;fi \
         && if [ ${INSTALL_NPM_GRAPHITE_CLI} = true ]; then \
         npm install -g @withgraphite/graphite-cli \
 ;fi
