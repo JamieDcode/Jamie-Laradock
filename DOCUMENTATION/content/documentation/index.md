@@ -1874,6 +1874,22 @@ Yarn is a new package manager for JavaScript. It is so faster than npm, which yo
 
 
 <br>
+<a name="Install-NPM-FRACTAL"></a>
+## Install NPM GULP toolkit
+
+To install NPM GULP toolkit in the Workspace container
+
+1 - Open the `.env` file
+
+2 - Search for the `WORKSPACE_INSTALL_NPM_FRACTAL` argument under the Workspace Container and set it to `true`
+
+3 - Re-build the container `docker-compose build workspace`
+
+
+
+
+
+<br>
 <a name="Install-NPM-GULP"></a>
 ## Install NPM GULP toolkit
 

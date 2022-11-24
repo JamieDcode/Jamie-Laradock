@@ -714,6 +714,7 @@ ARG INSTALL_NPM_GULP=false
 ARG INSTALL_NPM_BOWER=false
 ARG INSTALL_NPM_VUE_CLI=false
 ARG INSTALL_NPM_ANGULAR_CLI=false
+ARG INSTALL_NPM_FRACTAL_CLI=false
 ARG NPM_REGISTRY
 ENV NPM_REGISTRY ${NPM_REGISTRY}
 ARG NPM_FETCH_RETRIES
@@ -756,6 +757,9 @@ RUN if [ ${INSTALL_NODE} = true ]; then \
         npm install -g @angular/cli \
         ;fi \
         && ln -s `npm bin --global` /home/laradock/.node-bin \
+        ;fi \
+        && if [ ${INSTALL_NPM_FRACTAL_CLI} = true ]; then \
+        npm install -g @frctl/fractal \
 ;fi
 
 # Wouldn't execute when added to the RUN statement in the above block
