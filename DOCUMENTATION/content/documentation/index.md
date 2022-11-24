@@ -1960,6 +1960,22 @@ To install NPM ANGULAR CLI in the Workspace container
 
 
 
+<br>
+<a name="Install-NPM-GRAPHITE-CLI"></a>
+## Install NPM GRAPHITE CLI
+
+To install NPM GRAPHITE CLI in the Workspace container
+
+1 - Open the `.env` file
+
+2 - Search for the `WORKSPACE_INSTALL_NPM_GRAPHITE_CLI` argument under the Workspace Container and set it to `true`
+
+3 - Re-build the container `docker-compose build workspace`
+
+
+
+
+
 
 <br>
 <a name="Install-Linuxbrew"></a>
