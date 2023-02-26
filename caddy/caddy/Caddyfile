@@ -394,6 +394,28 @@ asbestosedge.test {
     encode gzip
 }
 
+misura.test {
+    root * /var/www/misura/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    encode gzip
+}
+portal.misura.test {
+    root * /var/www/misura/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    encode gzip
+}
+foundwerks.misura.test {
+    root * /var/www/misura/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    encode gzip
+}
+
 evolutionelectrical.test {
     root * /var/www/evolutionelectrical/public/
     php_fastcgi php-fpm:9000

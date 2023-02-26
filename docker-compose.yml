@@ -60,7 +60,7 @@ services:
 
 ### Workspace Utilities ##################################
     workspace:
-      # platform: linux/amd64
+      platform: linux/amd64
       build:
         context: ./workspace
         args:
