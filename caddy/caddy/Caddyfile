@@ -90,6 +90,15 @@ strapi.test {
     encode gzip
 }
 
+stinkybins.test {
+    root * /var/www/loveusoap/public/
+    php_fastcgi php-fpm:9000
+    file_server
+
+    tls internal
+    encode gzip
+}
+
 koala.test {
     root * /var/www/koala-cherries/public/
     php_fastcgi php-fpm:9000
